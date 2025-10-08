@@ -61,7 +61,3 @@ npm run watch   # compile TypeScript in watch mode
 ```
 
 Press `F5` in VS Code to launch an Extension Development Host. Use `npm run package` to build a distributable `.vsix` (requires `vsce`).
-
-## License
-
-This extension is distributed under the MIT License. See `LICENSE` for details.
