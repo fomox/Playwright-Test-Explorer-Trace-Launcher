@@ -1,0 +1,83 @@
+{
+  "name": "playwright-test-explorer-trace-launcher",
+  "displayName": "Playwright Test Explorer Trace Launcher",
+  "description": "Adds a 'Open in Trace Viewer' context menu for tests in the Test Explorer and runs Playwright trace viewer for the test. Only tested with .NET and on Mac OSX, but could work on other configurations. Requires powershell and npm/node.",
+  "publisher": "your-publisher-id",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onView:workbench.view.testing"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "openTraceViewer.open",
+        "title": "Open in Trace Viewer",
+        "category": "Testing"
+      }
+    ],
+    "menus": {
+      "testing/item/context": [
+        {
+          "command": "openTraceViewer.open",
+          "group": "inline@99"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Open Trace Viewer",
+      "properties": {
+        "openTraceViewer.search.debugOrRelease": {
+          "type": "string",
+          "enum": ["Debug", "Release"],
+          "default": "Debug",
+          "description": "Prefer Debug or Release build when locating playwright.ps1 and traces."
+        },
+        "openTraceViewer.search.traceNameStrategy": {
+          "type": "string",
+          "enum": ["filename", "pathContains", "both"],
+          "default": "both",
+          "description": "How to match a trace to a test name: a file named <name>.zip (filename), any path segment contains the name (pathContains), or both."
+        },
+        "openTraceViewer.search.maxResults": {
+          "type": "number",
+          "default": 2000,
+          "minimum": 100,
+          "description": "Upper bound on files scanned when searching for playwright.ps1 and trace zips."
+        },
+        "openTraceViewer.search.additionalTraceGlobs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [
+            "**/trace.zip",
+            "**/*trace*.zip",
+            "**/Playwright*/*trace*.zip",
+            "**/TestResults/**/*trace*.zip"
+          ],
+          "description": "Extra glob patterns to search for trace zip files."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "package": "vsce package",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.4.0",
+    "@vscode/vsce": "^2.24.0",
+    "eslint": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0"
+  }
+}
