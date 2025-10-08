@@ -1,9 +1,9 @@
 {
-  "name": "playwright-test-explorer-trace-launcher",
-  "displayName": "Playwright Test Explorer Trace Launcher",
+  "name": "playwright-trace-launcher",
+  "displayName": "Playwright Trace Launcher",
   "description": "Adds an 'Open in Trace Viewer' context menu for tests in the Test Explorer and runs Playwright trace viewer for the test. Only tested with .NET and on Mac OSX, but could work on other configurations. Requires powershell and npm/node.",
   "publisher": "tasteparty",
-  "repository": "https://github.com/fomox/Playwright-Test-Explorer-Trace-Launcher",
+  "repository": "https://github.com/fomox/Playwright-Trace-Launcher",
   "version": "1.1.0",
   "icon": "icon.png",
   "engines": {
