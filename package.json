@@ -25,6 +25,9 @@
         {
           "command": "openTraceViewer.open",
           "group": "inline@99"
+        },
+        {
+          "command": "openTraceViewer.open"
         }
       ]
     },
