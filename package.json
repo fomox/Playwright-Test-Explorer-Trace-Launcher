@@ -4,12 +4,14 @@
   "description": "Adds an 'Open in Trace Viewer' context menu for tests in the Test Explorer and runs Playwright trace viewer for the test. Only tested with .NET and on Mac OSX, but could work on other configurations. Requires powershell and npm/node.",
   "publisher": "tasteparty",
   "repository": "https://github.com/fomox/Playwright-Test-Explorer-Trace-Launcher",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.90.0"
   },
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "activationEvents": [
     "onView:workbench.view.testing"
   ],
@@ -38,13 +40,20 @@
       "properties": {
         "openTraceViewer.search.debugOrRelease": {
           "type": "string",
-          "enum": ["Debug", "Release"],
+          "enum": [
+            "Debug",
+            "Release"
+          ],
           "default": "Debug",
           "description": "Prefer Debug or Release build when locating playwright.ps1 and traces."
         },
         "openTraceViewer.search.traceNameStrategy": {
           "type": "string",
-          "enum": ["filename", "pathContains", "both"],
+          "enum": [
+            "filename",
+            "pathContains",
+            "both"
+          ],
           "default": "both",
           "description": "How to match a trace to a test name: a file named <name>.zip (filename), any path segment contains the name (pathContains), or both."
         },
@@ -56,7 +65,9 @@
         },
         "openTraceViewer.search.additionalTraceGlobs": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "default": [
             "**/trace.zip",
             "**/*trace*.zip",
