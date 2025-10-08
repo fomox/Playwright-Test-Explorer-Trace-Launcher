@@ -4,7 +4,7 @@
   "description": "Adds an 'Open in Trace Viewer' context menu for tests in the Test Explorer and runs Playwright trace viewer for the test. Only tested with .NET and on Mac OSX, but could work on other configurations. Requires powershell and npm/node.",
   "publisher": "tasteparty",
   "repository": "https://github.com/fomox/Playwright-Trace-Launcher",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.90.0"
